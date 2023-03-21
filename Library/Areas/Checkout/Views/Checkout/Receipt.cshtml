@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewData["Title"] = "Receipt";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Checkout Complete</h1>
+    <p>Thank you! You may search again or continue to browse the library catalog</p>
+    <div class="container p-3">
+        <div class="row p-4">
+            <div class="col-6" align="right">
+                <a asp-area ="Catalog" asp-controller="Catalog" asp-action="Search" class="btn btn-primary">
+                    <i class="bi bi-search"></i>
+                    &nbsp; Search Catalog
+                </a>
+            </div>
+            <div class="col-6" align="left">
+               <a asp-area="Catalog" asp-controller="Catalog" asp-action="Index" class="btn btn-primary">
+                  <i class="bi bi-book"></i>
+                  &nbsp; Catalog List
+               </a>
+            </div>
+
+        </div>
+    </div>
+</div>
+

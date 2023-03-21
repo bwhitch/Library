@@ -1,0 +1,80 @@
+﻿@model Library.Web.ViewModels.CartViewModel
+@{
+    ViewData["Title"] = "Cart";
+}
+
+<h1>Library Cart</h1>
+@if (@TempData["ItemError"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ItemError"]
+    </div>
+}
+else if(TempData["Success"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Success"]
+    </div>
+}
+
+
+
+<div class="container p-3">
+    <div class="row p-4">
+        <div class="col-6">
+            <h2>@Model.NumberOfItems books found</h2>
+            <a asp-area="Checkout" asp-controller="Checkout" asp-action="Checkout" class="btn btn-primary">
+                <i class="bi bi-cart-check"></i>
+                &nbsp; Proceed To Checkout
+                </a>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Catalog" asp-action="Search" class="btn btn-primary">
+                <i class="bi bi-search"></i>
+                &nbsp; Search Catalog Again
+            </a>
+            <a asp-controller="Catalog" asp-action="Index" class="btn btn-primary">
+                <i class="bi bi-book"></i>
+                &nbsp; Catalog List
+            </a>
+        </div>
+    </div>
+</div>
+
+<table class="table table-bordered table-striped" style="width: 100%">
+    <thead>
+        <tr>
+            <th>
+                Title
+            </th>
+            <th>
+                Author
+            </th>
+            <th>
+                Rating
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.CartItemdData)
+        {
+                <tr>
+                    <td width="40%">
+                    @item.Book.Title
+                    </td>
+                    <td width="40%">
+                    @item.Book.Author
+                    </td>
+                    <td width="20%">
+                    @item.Book.Rating
+                    </td>
+                    <td>
+                         <a asp-controller="Cart" asp-action="Remove" asp-route-id="@item.Book.Id" class="btn btn-primary">Remove</a>
+                    </td>
+                </tr>
+        }
+
+    </tbody>
+</table>
+

@@ -1,0 +1,15 @@
+﻿@model Library.Web.ViewModels.QuickCartViewModel
+@{
+    ViewData["Title"] = "QuickCart";
+}
+
+@if(Model != null)
+{
+    <p>You have <span class="badge badge-primary">@Model.NumberOfBooks</span> in your cart.</p>
+    <a href="#" class="bth btn-primary mb-2">View Cart</a>
+    <a href="#" class="bth btn-danger">Empty Cart</a>
+}
+else
+{
+    <p class="lead m-0">Your cart is empty</p>
+}

@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewData["Title"] = "Book Detail";
+}
+
+<div class="text-left">
+<h1>Book Details</h1>
+<p>Details to present here:  Book image, sumarry, sample pages, etc...</p>
+
+    <div class="container p-3">
+        <div class="row p-4">
+            <div class="col-3" align="left">
+               <a href="##" onClick="history.go(-1); return false;" class="btn btn-primary">
+                  <i class="bi bi-book"></i>
+                  &nbsp; Return to Search Results
+               </a>
+            </div>
+            <div class="col-3" align="left">
+                <a asp-area ="Catalog" asp-controller="Catalog" asp-action="Search" class="btn btn-primary">
+                    <i class="bi bi-search"></i>
+                    &nbsp; Search Catalog
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+

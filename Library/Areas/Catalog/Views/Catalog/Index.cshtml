@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Library.Models.Book>
+@{
+    ViewData["Title"] = "Index";
+}
+
+@*<h1>Library Catalog List</h1>*@
+
+<div class="container p-3">
+    <div class="row p-4">
+        <div class="col-6">
+            <h2 >Library Catalog</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Catalog" asp-action="Search" class="btn btn-primary">
+                <i class="bi bi-book"></i>
+                &nbsp; Search Catalog
+            </a>
+        </div>
+    </div>
+</div>
+
+<table class="table table-bordered table-striped" style="width: 100%">
+    <thead>
+        <tr>
+            <th>
+                Title
+            </th>
+            <th>
+                Author
+            </th>
+            <th>
+                Rating
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var book in Model)
+        {
+            <tr>
+                <td width="40%">
+                    @book.Title
+                </td>
+                <td width ="35%">
+                    @book.Author
+                </td>
+                <td width="10%">
+                    @book.Rating
+                </td>
+                <td width="15%" align="center">
+                    <a asp-controller="Cart" asp-action="AddToCart" asp-route-id="@book.Id" class="btn btn-primary">Add To Cart</a>
+                </td>
+            </tr>
+        }
+ 
+    </tbody>
+</table>
+

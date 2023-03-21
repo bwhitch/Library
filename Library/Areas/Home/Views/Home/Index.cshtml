@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to the MGM Library</h1>
+    <p>Begin your search below or browse the library catalog</p>
+    <div class="container p-3">
+        <div class="row p-4">
+            <div class="col-6" align="right">
+                <a asp-area ="Catalog" asp-controller="Catalog" asp-action="Search" class="btn btn-primary">
+                    <i class="bi bi-search"></i>
+                    &nbsp; Search Catalog
+                </a>
+            </div>
+            <div class="col-6" align="left">
+               <a asp-area="Catalog" asp-controller="Catalog" asp-action="Index" class="btn btn-primary">
+                  <i class="bi bi-book"></i>
+                  &nbsp; Catalog List
+               </a>
+            </div>
+
+        </div>
+    </div>
+</div>

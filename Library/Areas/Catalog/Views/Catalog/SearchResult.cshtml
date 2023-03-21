@@ -1,0 +1,60 @@
+﻿@model Library.Web.ViewModels.SearchResultViewModel
+@{
+    ViewData["Title"] = "SearchResult";
+}
+
+<h1>Search Results</h1>
+
+<div class="container p-3">
+    <div class="row p-4">
+        <div class="col-6">
+            <h2>@Model.TotalRecords books found</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Catalog" asp-action="Search" class="btn btn-primary">
+                <i class="bi bi-book"></i>
+                &nbsp; Search Catalog Again
+            </a>
+        </div>
+    </div>
+</div>
+
+<table class="table table-bordered table-striped" style="width: 100%">
+    <thead>
+        <tr>
+            <th>
+                Title
+            </th>
+            <th>
+                Author
+            </th>
+            <th>
+                Rating
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var book in Model.Books)
+        {
+            <tr>
+                <td width="40%">
+                    @book.Title
+                </td>
+                <td width="35%">
+                    @book.Author
+                </td>
+                <td width="10%">
+                    @book.Rating
+                </td>
+                <td width="15%" align="center">
+                     <a asp-controller="Catalog" asp-action="Detail" asp-route-id="@book.Id" class="btn btn-primary">Details</a>
+                      <br/>
+                      <br/>
+                    <a asp-controller="Cart" asp-action="AddToCart" asp-route-id="@book.Id" class="btn btn-primary">Add To Cart</a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
